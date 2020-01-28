@@ -34,7 +34,7 @@ export default class App extends Component {
         <RandomPlanet />
 
         <PeoplePage />
-        <Row left='foo' right='bar2'/>
+        <Row left='foo' right='bar'/>
       </div>
     );
   }
