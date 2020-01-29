@@ -4,7 +4,7 @@ import './item-details.css';
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 
-export const Record = ({item, field, label}) => {
+const Record = ({item, field, label}) => {
   return (
     <li className="list-group-item">
       <span className="term">{label}</span>
@@ -12,6 +12,10 @@ export const Record = ({item, field, label}) => {
     </li>
   )
 }
+
+export {
+  Record
+};
 
 export default class ItemDetails extends Component {
 
@@ -71,9 +75,6 @@ export default class ItemDetails extends Component {
           </ul>
         </div>
       </div>
-    )
-
-
-  
+    )  
   }
 }

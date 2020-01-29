@@ -6,11 +6,20 @@ import RandomPlanet from '../random-planet';
 import './app.css';
 import PeoplePage from '../people-page';
 import ItemList from '../item-list';
-import PersonDetails from '../person-details';
 import SwapiService from '../../services/swapi-service';
 import Row from '../row';
 import ItemDetails  from '../item-details';
 import { Record } from '../item-details/item-details';
+
+import {
+  PersonDetails,
+  StarshipDetails,
+  PlanetDetails,
+  PersonList,
+  StarshipList,
+  PlanetList
+} from '../sw-components';
+
 
 export default class App extends Component {
 
@@ -32,7 +41,9 @@ export default class App extends Component {
     const { getPerson,
             getStarship,
             getPersonImage,
-            getStarshipImage
+            getStarshipImage,
+            getAllPeople,
+            getAllPlanets
           } = this.swapiService;
 
     const personDetails = (
@@ -59,9 +70,20 @@ export default class App extends Component {
       <div>
         <Header />
         <RandomPlanet />
+        <Row 
+          left={
+            <PersonList>
+             { ({name}) => <span>{name}</span> }
+            </PersonList>
+          }
+          right={
+            <PersonDetails itemId='5' />
+          }
+        />
+        <PersonList />
+        <StarshipList />
+        <PlanetList />
 
-        {/* <PeoplePage /> */}
-        <Row left={personDetails} right={starshipsDetails} />
       </div>
     );
   }
